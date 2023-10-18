@@ -5,8 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
-      <p className="text-gray-900 font-bold text-xl mb-2">Page</p>
+    <div className="flex flex-col justify-center">
       <BoardComponent></BoardComponent>
     </div>
   );

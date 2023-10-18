@@ -1,9 +1,7 @@
-// prettier-ignore
-'use client';
 const CellComponent = ({ value, index, onClick }) => {
   return (
     <button
-      className="bg-cyan-300 h-5 w-5 text-gray-900 mb-2 content-center "
+      className="text-gray-800 content-center bg-white text-5xl"
       onClick={() => onClick(index)}
       disabled={value != ""}
     >
@@ -11,5 +9,4 @@ const CellComponent = ({ value, index, onClick }) => {
     </button>
   );
 };
-``;
 export default CellComponent;

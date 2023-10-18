@@ -68,29 +68,28 @@ const BoardComponent = () => {
   };
 
   return (
-    <>
-      <p className="text-gray-900 font-bold text-xl mb-2">Board</p>
+    <div className="text-gray-900 font-bold text-xl mb-2 h-full">
       <div className="text-gray-900 font-bold text-xl mb-2">
-        Winner
-        <div className="text-gray-900 font-bold text-xl mb-2">
-          {gameState.winner}
-        </div>
+        Winner : {gameState.winner}
       </div>
-      <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5 ">
+      <div
+        className="grid grid-cols-3 columns-xs rows-xs grid-rows aspect-square w-2/6 
+          gap-1
+        border-black border-4
+        bg-black rounded-sm"
+      >
         {gameState.board.map((cellState, index) => {
           return (
-            <div key={index}>
-              <CellComponent
-                value={cellState}
-                index={index}
-                onClick={onCellClick}
-              ></CellComponent>
-              ;
-            </div>
+            <CellComponent
+              key={index}
+              value={cellState}
+              index={index}
+              onClick={onCellClick}
+            ></CellComponent>
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
