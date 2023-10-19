@@ -42,7 +42,6 @@ const calculateUpdatedBoard = (
   gameState: GameState,
   index: number
 ): string[] => {
-  console.log(`index ${index} was clicked`);
   const updatedBoard: string[] = gameState.board.map((cell, cellIndex) => {
     return cellIndex == index ? gameState.turn : cell;
   });
@@ -67,13 +66,24 @@ const BoardComponent = () => {
     });
   };
 
+  const onNewGameClick = () => {
+    setGameState(initialGameState);
+  };
+
   return (
-    <div className="text-gray-900 font-bold text-xl mb-2 h-full">
-      <div className="text-gray-900 font-bold text-xl mb-2">
-        Winner : {gameState.winner}
+    <div className="text-gray-900 font-bold text-xl mb-2 h-full w-2/6 flex flex-col gap-5">
+      <div className="flex flex-row justify-between">
+        <div>Winner : {gameState.winner}</div>
+        <div>Turn: {gameState.turn}</div>
+        <button
+          className="border-4 border-black p-2 hover:bg-gray-200 "
+          onClick={onNewGameClick}
+        >
+          New Game
+        </button>
       </div>
       <div
-        className="grid grid-cols-3 columns-xs rows-xs grid-rows aspect-square w-2/6 
+        className="grid grid-cols-3 grid-rows aspect-square
           gap-1
         border-black border-4
         bg-black rounded-sm"
