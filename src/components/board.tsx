@@ -1,8 +1,8 @@
 // prettier-ignore
 'use client';
 import { useState } from "react";
-
 import CellComponent from "./cell";
+import WinnerModal from "./winnerModal";
 
 class GameState {
   turn: string;
@@ -66,22 +66,22 @@ const BoardComponent = () => {
     });
   };
 
-  const onNewGameClick = () => {
+  const resetGame = () => {
     setGameState(initialGameState);
   };
 
   return (
     <div className="text-gray-900 font-bold text-xl mb-2 h-full w-2/6 flex flex-col gap-5">
       <div className="flex flex-row justify-between">
-        <div>Winner : {gameState.winner}</div>
         <div>Turn: {gameState.turn}</div>
         <button
           className="border-4 border-black p-2 hover:bg-gray-200 "
-          onClick={onNewGameClick}
+          onClick={resetGame}
         >
           New Game
         </button>
       </div>
+      <WinnerModal onClose={resetGame} winner={gameState.winner}></WinnerModal>
       <div
         className="grid grid-cols-3 grid-rows aspect-square
           gap-1
