@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CellComponent from "./cell";
 import WinnerModal from "./winnerModal";
+import NewGameButton from "./newGameButton";
 
 class GameState {
   turn: string;
@@ -74,12 +75,7 @@ const BoardComponent = () => {
     <div className="flex flex-col w-3/4 xl:w-1/3 font-sans text-black text-xl font-bold gap-4">
       <div className="flex flex-row justify-between">
         <div>Turn: {gameState.turn}</div>
-        <button
-          className="border-4 border-black p-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-black hover:border-4"
-          onClick={resetGame}
-        >
-          New Game
-        </button>
+        <NewGameButton onClick={resetGame} />
       </div>
       <WinnerModal onClose={resetGame} winner={gameState.winner}></WinnerModal>
       <div
