@@ -75,7 +75,7 @@ const BoardComponent = () => {
       <div className="flex flex-row justify-between">
         <div>Turn: {gameState.turn}</div>
         <button
-          className="border-4 border-black p-2 hover:bg-gray-200 "
+          className="border-4 border-black p-2 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-black hover:border-4"
           onClick={resetGame}
         >
           New Game

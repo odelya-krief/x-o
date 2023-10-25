@@ -9,7 +9,7 @@ const WinnerModal = ({ onClose, winner }) => {
       {winner && (
         <>
           <div
-            className="flex fixed justify-center items-center inset-0 z-50 "
+            className="flex fixed justify-center items-center inset-0 z-50"
             onClick={onClose}
           >
             <div className="bg-white w-1/3 h-1/3 flex flex-col items-center justify-center space-y-3">
