@@ -71,7 +71,7 @@ const BoardComponent = () => {
   };
 
   return (
-    <div className="text-gray-900 font-bold text-xl mb-2 h-full w-2/6 flex flex-col gap-5">
+    <div className="flex flex-col w-3/4 xl:w-1/3 font-sans text-black text-xl font-bold gap-4">
       <div className="flex flex-row justify-between">
         <div>Turn: {gameState.turn}</div>
         <button
@@ -83,7 +83,7 @@ const BoardComponent = () => {
       </div>
       <WinnerModal onClose={resetGame} winner={gameState.winner}></WinnerModal>
       <div
-        className="grid grid-cols-3 grid-rows aspect-square
+        className="grid grid-cols-3 grid-rows aspect-square 
           gap-1
         border-black border-4
         bg-black rounded-sm"
