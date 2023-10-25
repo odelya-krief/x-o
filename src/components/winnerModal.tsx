@@ -1,6 +1,9 @@
+import useWindowSize from "@/hooks/useWindowSize";
 import React from "react";
 
+import Confetti from "react-confetti";
 const WinnerModal = ({ onClose, winner }) => {
+  const { width, height } = useWindowSize();
   return (
     <>
       {winner && (
@@ -16,6 +19,7 @@ const WinnerModal = ({ onClose, winner }) => {
             </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <Confetti tweenDuration={7000} width={width} height={height} />
         </>
       )}
     </>
