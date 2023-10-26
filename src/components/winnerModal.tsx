@@ -18,8 +18,13 @@ const WinnerModal = ({ onClose, winner }) => {
               <div className="">won!</div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          <Confetti tweenDuration={7000} width={width} height={height} />
+          <div className="opacity-25 fixed inset-0 z-40 bg-black hover:cursor-pointer" />
+          <Confetti
+            tweenDuration={7000}
+            width={width}
+            height={height}
+            colors={["#3B2F52", "#E59462", "#E1E5EB"]}
+          />
         </>
       )}
     </>
