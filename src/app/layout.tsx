@@ -1,3 +1,4 @@
+import { handleeFontClass } from "@/lib/font";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,8 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-gray-50 to-teal-50 flex flex-col gap-10 items-center pt-5 h-screen w-screen">
-        <h1 className="text-7xl text-black font-sans">XO</h1>
+      <body
+        className={`${handleeFontClass} text-main-orange font-bold font-sans bg-gradient-to-b from-main-purple to-main-purple flex flex-col gap-10 items-center pt-10 h-screen w-screen`}
+      >
+        <h1 className="text-7xl">XO</h1>
         {children}
       </body>
     </html>

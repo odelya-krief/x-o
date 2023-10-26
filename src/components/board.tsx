@@ -72,18 +72,13 @@ const BoardComponent = () => {
   };
 
   return (
-    <div className="flex flex-col w-3/4 xl:w-1/3 font-sans text-black text-xl font-bold gap-4">
+    <div className="flex flex-col w-3/4 xl:w-1/3 text-3xl font-bold gap-4">
       <div className="flex flex-row justify-between">
         <div>Turn: {gameState.turn}</div>
         <NewGameButton onClick={resetGame} />
       </div>
-      <WinnerModal onClose={resetGame} winner={gameState.winner}></WinnerModal>
-      <div
-        className="grid grid-cols-3 grid-rows aspect-square 
-          gap-1
-        border-black border-4
-        bg-black rounded-sm"
-      >
+      <WinnerModal onClose={resetGame} winner={gameState.winner} />
+      <div className="grid grid-cols-3 grid-rows aspect-square gap-2">
         {gameState.board.map((cellState, index) => {
           return (
             <CellComponent
@@ -91,7 +86,7 @@ const BoardComponent = () => {
               value={cellState}
               index={index}
               onClick={onCellClick}
-            ></CellComponent>
+            />
           );
         })}
       </div>
