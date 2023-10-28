@@ -89,7 +89,7 @@ const BoardComponent = () => {
         winner={gameState.winner}
         gameOver={gameState.gameOver}
       />
-      <div className="flex flex-col w-3/4 xl:w-1/3 text-5xl sm:text-3xl font-bold gap-4">
+      <div className="flex flex-col w-3/4 xl:w-1/3 text-3xl sm:text-5xl font-bold gap-6">
         <div className="flex flex-row justify-between">
           <div>Turn: {gameState.turn}</div>
           <NewGameButton onClick={resetGame} />
