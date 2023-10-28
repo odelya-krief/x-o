@@ -15,6 +15,7 @@ const config: Config = {
         "main-purple": "#D5CAE4",
         "main-orange": "#E59462",
         "main-gray": "#E1E5EB",
+        "main-dark-purple": "#3B2F52",
       },
     },
   },

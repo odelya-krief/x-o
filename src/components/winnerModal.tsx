@@ -9,16 +9,17 @@ const WinnerModal = ({ onClose, winner }) => {
       {winner && (
         <>
           <div
-            className="flex fixed justify-center items-center inset-0 z-50"
+            className="fixed h-screen w-screen z-0 m-auto max-w-lg bg-gradient-to-tr from-[#3B2F52] via-white to-[#3B2F52] blur-[118px] hover:cursor-pointer"
+            onClick={onClose}
+          />
+          <div
+            className="text-3xl sm:text-5xl text-main-dark-purple fixed h-screen flex flex-col items-center justify-center space-y-3 z-1 hover:cursor-pointer"
             onClick={onClose}
           >
-            <div className="bg-white w-1/3 h-1/3 flex flex-col items-center justify-center space-y-3">
-              <div className="">Congrats</div>
-              <div className="text-black text-5xl">{winner}</div>
-              <div className="">won!</div>
-            </div>
+            <div>Congrats</div>
+            <div className="text-main-orange">{winner}</div>
+            <div>won!</div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black hover:cursor-pointer" />
           <Confetti
             tweenDuration={7000}
             width={width}

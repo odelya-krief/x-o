@@ -72,25 +72,27 @@ const BoardComponent = () => {
   };
 
   return (
-    <div className="flex flex-col w-3/4 xl:w-1/3 text-3xl font-bold gap-4">
-      <div className="flex flex-row justify-between">
-        <div>Turn: {gameState.turn}</div>
-        <NewGameButton onClick={resetGame} />
-      </div>
+    <>
       <WinnerModal onClose={resetGame} winner={gameState.winner} />
-      <div className="grid grid-cols-3 grid-rows aspect-square gap-2">
-        {gameState.board.map((cellState, index) => {
-          return (
-            <CellComponent
-              key={index}
-              value={cellState}
-              index={index}
-              onClick={onCellClick}
-            />
-          );
-        })}
+      <div className="flex flex-col w-3/4 xl:w-1/3 text-5xl sm:text-3xl font-bold gap-4">
+        <div className="flex flex-row justify-between">
+          <div>Turn: {gameState.turn}</div>
+          <NewGameButton onClick={resetGame} />
+        </div>
+        <div className="grid grid-cols-3 grid-rows aspect-square gap-2">
+          {gameState.board.map((cellState, index) => {
+            return (
+              <CellComponent
+                key={index}
+                value={cellState}
+                index={index}
+                onClick={onCellClick}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
