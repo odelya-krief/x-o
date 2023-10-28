@@ -9,14 +9,17 @@ class GameState {
   turn: string;
   board: string[];
   winner?: string;
-  constructor(turn: string, board: string[]) {
+  gameOver: boolean;
+  constructor(turn: string, board: string[], gameOver: boolean) {
     this.turn = turn;
     this.board = board;
+    this.gameOver = gameOver;
   }
 }
 const initialGameState: GameState = {
   turn: "X",
   board: ["", "", "", "", "", "", "", "", ""],
+  gameOver: false,
 };
 
 const calculateWinner = (board: string[]): string => {
@@ -30,13 +33,19 @@ const calculateWinner = (board: string[]): string => {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       return board[a];
     }
   }
+
   return "";
+};
+
+const calculateGameOver = (board: string[]): boolean => {
+  return board.every((cell) => cell != "");
 };
 
 const calculateUpdatedBoard = (
@@ -60,10 +69,12 @@ const BoardComponent = () => {
     const updatedBoard = calculateUpdatedBoard(gameState, index);
     const updatedWinner = calculateWinner(updatedBoard);
     const updatedTurn = calculateTurn(gameState.turn);
+    const gameOver = calculateGameOver(updatedBoard);
     setGameState({
       board: updatedBoard,
       turn: updatedTurn,
       winner: updatedWinner,
+      gameOver: gameOver,
     });
   };
 
@@ -73,7 +84,11 @@ const BoardComponent = () => {
 
   return (
     <>
-      <WinnerModal onClose={resetGame} winner={gameState.winner} />
+      <WinnerModal
+        onClose={resetGame}
+        winner={gameState.winner}
+        gameOver={gameState.gameOver}
+      />
       <div className="flex flex-col w-3/4 xl:w-1/3 text-5xl sm:text-3xl font-bold gap-4">
         <div className="flex flex-row justify-between">
           <div>Turn: {gameState.turn}</div>
