@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${handleeFontClass} text-main-orange font-bold font-sans bg-gradient-to-b from-main-purple to-main-purple flex flex-col items-center pt-10 h-screen w-screen`}
+        className={`${handleeFontClass} text-main-orange font-bold font-sans bg-gradient-to-b from-main-purple to-main-purple flex flex-col items-center pt-10 h-screen w-screen gap-4`}
       >
         <h1 className="text-7xl">XO</h1>
         {children}
